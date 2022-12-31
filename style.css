@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+:root {
+  --black: #111;
+  --white: #eee;
+  --light-gray: #bbb;
+  --dark-gray: #222;
+  --available: rgb(74, 255, 74);
+  --unavailable: rgb(238, 50, 50);
+  --undecided: rgb(255, 143, 39);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--white);
+  font-family: "Roboto", sans-serif;
+  user-select: none;
+}
+html {
+  background-color: var(--black);
+}
+
+/* ================ Header ================ */
+header {
+  margin: 1rem;
+  border-bottom: 1px solid var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+}
+
+#toggle-dark {
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+
+#lang-change {
+  font-size: 2rem;
+  transition: color 500ms;
+}
+
+#lang-change:hover, #toggle-dark:hover {
+  color: var(--light-gray);
+  cursor: pointer;
+}
+
+/* ================ App information ================ */
+.info {
+  background-color: var(--dark-gray);
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+}
+.info-states {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.info-states div {
+  color: #111;
+  padding: .5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.info-states div:first-of-type {
+  background-color: var(--available);
+}
+.info-states div:nth-of-type(2) {
+  background-color: var(--undecided);
+}
+.info-states div:last-of-type {
+  background-color: var(--unavailable);
+}
+
+/* ================ Main ================ */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.week-container.mobile {
+  display: none;
+}
+
+.week-container {
+  margin: 1rem;
+  border: 3px solid var(--white);
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  border-radius: 5px;
+}
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--black);
+  padding: 1rem 0.2rem;
+  transition: background-color 500ms;
+}
+.cell:not(.cell.day) {
+  border: 1px solid var(--light-gray);
+}
+.cell.blank:not(.cell.day):hover {
+  filter: brightness(1.5);
+
+}.cell:not(.cell.day):not(.cell.blank):hover {
+  filter: brightness(.7);
+}
+
+.day {
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-color: rgb(50, 124, 236);
+  border-bottom: 3px solid var(--white);
+  color: #eee;
+}
+.day:nth-of-type(1), .day:nth-of-type(8) {
+  background-color: rgb(50, 163, 131);
+}
+.day:nth-of-type(2), .day:nth-of-type(9) {
+  background-color: rgb(50, 163, 69);
+}
+.day:nth-of-type(3), .day:nth-of-type(10) {
+  background-color: rgb(163, 146, 50);
+}
+.day:nth-of-type(4), .day:nth-of-type(11) {
+  background-color: rgb(163, 86, 50);
+}
+.day:nth-of-type(5), .day:nth-of-type(12) {
+  background-color: rgb(163, 50, 50);
+}
+.day:nth-of-type(6), .day:nth-of-type(13) {
+  background-color: rgb(163, 50, 129);
+}
+.day:nth-of-type(7), .day:nth-of-type(14) {
+  background-color: rgb(99, 50, 163);
+}
+/* ================ Toggable classes ================ */
+.cell:not(.cell.blank):not(.cell.day) {
+  color: #111;
+  font-weight: bold;
+}
+.available {
+  background-color: var(--available);
+}
+.unavailable {
+  background-color: var(--unavailable);
+}
+.undecided {
+  background-color: var(--undecided);
+}
+
+/* ================ Only Mobile ================ */
+@media screen and (orientation: portrait) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .cell:not(.cell.day) {
+    padding: 1rem 2rem;
+  }
+  .week-container.desktop {
+    display: none;
+  }
+  .week-container.mobile {
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-areas: 
+      "c c" 
+      "c c"
+      ;
+  }
+  .week-container {
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-flow: column;
+  }
+  .info {
+    width: 83%;
+  }
+}
+
+/* ================ Only Desktop ================ */
+@media screen and (orientation: landscape) {
+  .cell {
+    min-width: 150px;
+  }
+  .info {
+    min-width: 530px;
+  }
+}

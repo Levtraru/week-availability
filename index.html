@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timetable Organizer</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/2a2e74e139.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- My Script -->
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <!-- Title -->
+    <header>
+      <h1><div>Week Availability</div></h1>
+      <div>
+        <i
+          class="fa-solid fa-language fa-xl"
+          class="en-lang"
+          id="lang-change"
+          onclick="langChange()"
+        >
+        </i>
+        <i class="fa-solid fa-moon" id="toggle-dark"></i>
+      </div>
+    </header>
+    <main>
+      <section class="info">
+        <div><b>Click</b> any moment of the day to <b>toggle</b> through these states:</div>
+        <div class="info-states">
+          <div>Available</div>
+          <div>Undecided</div>
+          <div>Unavailable</div>
+        </div>
+      </section>
+      <section id="timetable">
+        <!-- Main container Desktop version -->
+        <div class="week-container desktop">
+          <!-- row -->
+          <div class="cell day">Sunday</div>
+          <div class="cell day">Monday</div>
+          <div class="cell day">Tuesday</div>
+          <div class="cell day">Wednesday</div>
+          <div class="cell day">Thursday</div>
+          <div class="cell day">Friday</div>
+          <div class="cell day">Saturday</div>
+          <!-- row -->
+          <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+          <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+          <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+          <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+          <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+          <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+          <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+          <!-- row -->
+          <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+          <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+          <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+          <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+          <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+          <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+          <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+          <!-- row -->
+          <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+          <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+          <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+          <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+          <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+          <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+          <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+          <!-- row -->
+          <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+        </div>
+
+        <!-- Main container Mobile version -->
+        <div class="week-container mobile">
+          <div class="cell day">Sunday</div>
+          <div class="wrapper">
+            <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+            <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+            <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+            <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          </div>
+
+          <div class="cell day">Monday</div>
+          <div class="wrapper">
+            <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+            <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+            <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+            <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          </div>
+
+          <div class="cell day">Tuesday</div>
+          <div class="wrapper">
+            <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+            <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+            <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+            <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          </div>
+
+          <div class="cell day">Wednesday</div>
+          <div class="wrapper">
+            <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+            <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+            <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+            <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          </div>
+
+          <div class="cell day">Thursday</div>
+          <div class="wrapper">
+            <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+            <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+            <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+            <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          </div>
+
+          <div class="cell day">Friday</div>
+          <div class="wrapper">
+            <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+            <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+            <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+            <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          </div>
+
+          <div class="cell day">Saturday</div>
+          <div class="wrapper">
+            <div class="cell blank">Morning <br /> (6:00 - 12:00)</div>
+            <div class="cell blank">Noon <br /> (12:00 - 15:00)</div>
+            <div class="cell blank">Afternoon <br /> (15:00 - 20:00)</div>
+            <div class="cell blank">Night <br />(20:00 - 02:00)</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
